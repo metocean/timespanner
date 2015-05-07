@@ -22,7 +22,6 @@
     "url": "https://github.com/metocean/timelord/issues"
   },
   "peerDependencies": {
-    "moment": "2.*",
     "moment-timezone": "0.*"
   },
   "homepage": "https://github.com/metocean/timelord"
