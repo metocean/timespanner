@@ -1,6 +1,6 @@
 {
   "name": "@metocean/timelord",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Control time with strings like '(Pacific/Auckland)now/d+5d6h'",
   "main": "timelord.js",
   "scripts": {
