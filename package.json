@@ -1,0 +1,29 @@
+{
+  "name": "@metocean/timelord",
+  "version": "1.0.0",
+  "description": "Control time with strings like '(Pacific/Auckland)now/d+5d6h'",
+  "main": "timelord.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/metocean/timelord.git"
+  },
+  "keywords": [
+    "date",
+    "time",
+    "moment",
+    "timezone"
+  ],
+  "author": "MetOcean Solutions Ltd",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metocean/timelord/issues"
+  },
+  "peerDependencies": {
+    "moment": "2.*",
+    "moment-timezone": "0.*"
+  },
+  "homepage": "https://github.com/metocean/timelord"
+}
