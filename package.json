@@ -1,6 +1,6 @@
 {
   "name": "timespanner",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Control time with strings like '(Pacific/Auckland)now/d+5d6h'",
   "main": "timespanner.js",
   "scripts": {
