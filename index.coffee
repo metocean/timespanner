@@ -12,9 +12,9 @@ isOperation = (n) -> n is '/' or n is '+' or n is '-'
 isTimezone = (n) -> isAlpha(n) or n >= 'A' and n <= 'Z' or n is '_' or n is '/'
 
 bind @, (moment) ->
-  return moment if moment.tl?
+  return moment if moment.spanner?
 
-  tl = (anchor, tz, s, vars) ->
+  spanner = (anchor, tz, s, vars) ->
     # current position in string
     i = 0
 
@@ -99,12 +99,12 @@ bind @, (moment) ->
 
     anchor
 
-  moment.tl = (s, vars) ->
+  moment.spanner = (s, vars) ->
     iso8601 = moment s, moment.ISO_8601
     return iso8601 if iso8601.isValid()
-    tl moment(), 'UTC', s, vars
+    spanner moment(), 'UTC', s, vars
 
-  moment.fn.tl = (s, vars) ->
+  moment.fn.spanner = (s, vars) ->
     tz = @_z?.name
-    tl @, tz, s, vars
+    spanner @, tz, s, vars
   moment

@@ -28,11 +28,11 @@ isTimezone = function(n) {
 };
 
 bind(this, function(moment) {
-  var tl;
-  if (moment.tl != null) {
+  var spanner;
+  if (moment.spanner != null) {
     return moment;
   }
-  tl = function(anchor, tz, s, vars) {
+  spanner = function(anchor, tz, s, vars) {
     var duration, f, i, readalpha, readduration, readnumber, readtimezone, shorthand, variable;
     i = 0;
     readalpha = function() {
@@ -130,18 +130,18 @@ bind(this, function(moment) {
     }
     return anchor;
   };
-  moment.tl = function(s, vars) {
+  moment.spanner = function(s, vars) {
     var iso8601;
     iso8601 = moment(s, moment.ISO_8601);
     if (iso8601.isValid()) {
       return iso8601;
     }
-    return tl(moment(), 'UTC', s, vars);
+    return spanner(moment(), 'UTC', s, vars);
   };
-  moment.fn.tl = function(s, vars) {
+  moment.fn.spanner = function(s, vars) {
     var ref, tz;
     tz = (ref = this._z) != null ? ref.name : void 0;
-    return tl(this, tz, s, vars);
+    return spanner(this, tz, s, vars);
   };
   return moment;
 });
