@@ -20,7 +20,7 @@ isAlpha = function(n) {
 };
 
 isOperation = function(n) {
-  return n === '/' || n === '+' || n === '-';
+  return n === '/' || n === '+' || n === '-' || n === '(';
 };
 
 isTimezone = function(n) {
@@ -126,7 +126,7 @@ bind(this, function(moment) {
       }
     }
     if (i < s.length) {
-      throw new Error('unknown format');
+      throw new Error("unknown format " + i + " < " + s.length);
     }
     return anchor;
   };

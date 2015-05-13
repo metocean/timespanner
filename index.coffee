@@ -8,7 +8,7 @@ bind = (root, factory) ->
 
 isNumber = (n) -> n >= '0' and n <= '9'
 isAlpha = (n) -> n >= 'a' and n <= 'z'
-isOperation = (n) -> n is '/' or n is '+' or n is '-'
+isOperation = (n) -> n is '/' or n is '+' or n is '-' or n is '('
 isTimezone = (n) -> isAlpha(n) or n >= 'A' and n <= 'Z' or n is '_' or n is '/'
 
 bind @, (moment) ->
@@ -95,7 +95,7 @@ bind @, (moment) ->
         i++
 
     if i < s.length
-      throw new Error 'unknown format'
+      throw new Error "unknown format #{i} < #{s.length}"
 
     anchor
 
