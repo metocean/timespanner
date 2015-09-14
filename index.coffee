@@ -1,17 +1,10 @@
-bind = (root, factory) ->
-  if typeof(define) is 'function' and define.amd?
-    define(['moment'], factory)
-  else if typeof(exports) is 'object'
-    module.exports = factory require 'moment-timezone'
-  else
-    factory root.moment
-
 isNumber = (n) -> n >= '0' and n <= '9'
-isAlpha = (n) -> n >= 'a' and n <= 'z'
+isAlpha = (n) -> n >= 'a' and n <= 'z' or n >= 'A' and n <= 'Z'
+isAlphanumeric = (n) -> isNumber(n) or isAlpha(n)
 isOperation = (n) -> n is '/' or n is '+' or n is '-' or n is '('
 isTimezone = (n) -> isAlpha(n) or n >= 'A' and n <= 'Z' or n is '_' or n is '/'
 
-bind @, (moment) ->
+module.exports = (moment) ->
   return moment if moment.spanner?
 
   spanner = (anchor, tz, s, vars) ->
@@ -75,13 +68,13 @@ bind @, (moment) ->
         anchor = anchor.startOf shorthand
       else if s[i] is '+'
         i++
-        while i < s.length
+        while i < s.length and isAlphanumeric s[i]
           duration = readduration()
           #console.log "add #{duration.toString()}"
           anchor = anchor.add duration
       else if s[i] is '-'
         i++
-        while i < s.length
+        while i < s.length and isAlphanumeric s[i]
           duration = readduration()
           #console.log "subtract #{duration.toString()}"
           anchor = anchor.subtract duration
