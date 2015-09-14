@@ -18,7 +18,7 @@ isOperation = function(n) {
 };
 
 isTimezone = function(n) {
-  return isAlpha(n) || n >= 'A' && n <= 'Z' || n === '_' || n === '/';
+  return isAlpha(n) || n === '_' || n === '/';
 };
 
 module.exports = function(moment) {

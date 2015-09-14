@@ -2,7 +2,7 @@ isNumber = (n) -> n >= '0' and n <= '9'
 isAlpha = (n) -> n >= 'a' and n <= 'z' or n >= 'A' and n <= 'Z'
 isAlphanumeric = (n) -> isNumber(n) or isAlpha(n)
 isOperation = (n) -> n is '/' or n is '+' or n is '-' or n is '('
-isTimezone = (n) -> isAlpha(n) or n >= 'A' and n <= 'Z' or n is '_' or n is '/'
+isTimezone = (n) -> isAlpha(n) or n is '_' or n is '/'
 
 module.exports = (moment) ->
   return moment if moment.spanner?
